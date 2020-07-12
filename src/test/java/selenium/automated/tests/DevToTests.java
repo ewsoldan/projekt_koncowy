@@ -1,3 +1,5 @@
+package selenium.automated.tests;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -8,6 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import selenium.automated.PageObjects.DevToMainPage;
 
 import java.util.concurrent.TimeUnit;
 
@@ -16,8 +19,8 @@ import static org.junit.Assert.assertTrue;
 
 public class DevToTests {
 
-    private WebDriver driver;
-    public String baseURL = "https://dev.to/";
+    WebDriver driver;
+    String baseURL = "https://dev.to/";
 
     public void HighlightElement(WebElement element) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -75,5 +78,11 @@ public class DevToTests {
         String currenturl = driver.getCurrentUrl();
         assertTrue(linktofirstpost.equals(currenturl));
 
+    }
+    @Test
+
+    public void OpenDevToObject(){
+
+        DevToMainPage devtomainpage = new DevToMainPage(driver);
     }
 }
